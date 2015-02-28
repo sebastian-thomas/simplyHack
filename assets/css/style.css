@@ -2,11 +2,16 @@
 	padding: 0px;
 	margin:0px;
 }
+ul li{
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
 .column{
 	padding-left: 0px !important;
 }
 .discussionBtn{
-	cursor: pointer;
+
 	display: inline-block;
 	padding: 6px 0px 0px 10px;
 	background-color: #3b3b3b;
@@ -16,6 +21,12 @@
 	height: 30px;
 	margin:10px;
 }
+#q{
+	cursor: pointer;
+}
+#s{
+	cursor: pointer;	
+}
 .discussionBtnActive{
 	background-color: #0fa508;
 	color: #fff;
@@ -23,9 +34,17 @@
 .discussionBox{
 	width: 600px;
 	height: 400px;
-	border: 1px solid grey;
 	margin-bottom: 10px;
+	overflow-y: scroll;
 
+}
+.answer{
+	margin-left: 30px;
+	color: blue;
+	cursor: pointer;
+}
+.singleDiscussion{
+	padding: 10px;
 }
 .singleMember{
   display: block;
