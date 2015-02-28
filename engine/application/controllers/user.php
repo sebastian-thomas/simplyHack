@@ -35,7 +35,11 @@ class User extends CI_Controller {
 	}
 
 	public function inCrementChaptersCompleted(){
-
+		print_r($_POST);
+		$id = $this->session->userdata('user_id');
+		$course = $this->input->post('course');
+		$this->user_model->incrementCourseCompletion($id,$course);
+		echo "done " . $course;
 	}
 }
 
