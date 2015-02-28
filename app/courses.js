@@ -12,6 +12,33 @@
 			.error(function(){
 				console.log("Error");
 			});
+
+		userc.rangev = function(min,max){
+			chapters = [];
+			min++;
+			for(i= min; i<=max;++i){
+				chapters.push(i);
+			}
+			return chapters;
+		};
+
+		userc.finishChapter = function(cid){
+			console.log(cid);
+			var postData = {
+				'course' : cid
+			};
+			$http({
+	            url: 'engine/index.php/user/incrch',
+	            method: "POST",
+	            data: {'course':cid},
+	            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	        }).success(function (data, status, headers, config) {
+	                console.log(data);
+	                console.log(headers);
+	        }).error(function (data, status, headers, config) {
+	                console.log(data);
+	            });
+		};
 	}]);
 
 })();

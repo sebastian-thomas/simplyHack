@@ -49,6 +49,7 @@ class User_model extends CI_Model {
 			$course['completedChapters'] = $row->chapterCompleted;
 			$course['startedOn'] = $row->startedOn;
 			$course['completedOn'] = $row->completedOn;
+			$course['level'] = $this->getCourseLevel($uid,$row->course_id);
 			array_push($courses, $course);
 		}
 		return $courses;
@@ -83,5 +84,11 @@ class User_model extends CI_Model {
 		$query = $this->db->get_where('course', array('id' => $id));
 		$row = $query->row();
 		return $row->noOfChapters;
+	}
+
+	public function incrementCourseCompletion($uid,$cid){
+		$sql = "update user_course set chapterCompleted = chapterCompleted + 1 where user_id='".$uid."' and course_id='".$cid."'";
+		$this->db->query($sql); 
+		echo $sql . " done";
 	}
 }
