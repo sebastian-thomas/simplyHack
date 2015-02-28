@@ -1,12 +1,15 @@
 <link href="assets/css/profile.css" type="text/css" rel="stylesheet">
 
-<div id="container">
+<div id="container" ng-controller="ProfileController as p">
 	<div id="top_section">
 		<div class="small_box">
-			image
+			<image ng-src={{p.user.imgUrl}} >
+				
 		</div>
 		<div class="small_box">
 			User data
+			{{p.user.name}}
+			{{p.user.email}}
 		</div>
 		<div class="small_box">
 			User activity
@@ -19,5 +22,12 @@
 
 	<div id="bot_section">
 		Courses
+		<div ng-repeat="course in p.user.courses">
+			{{course.name}}
+			{{course.totalChapters}}
+			{{course.completedChapters}}
+			{{course.startedOn}}
+			{{course.level}}
+		</div>
 	</div>
 </div>

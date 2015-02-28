@@ -32,7 +32,7 @@
         text: "Iam awsome!"
     }]
 
-    var app = angular.module('myapp', ['course', 'ngRoute', 'chart.js']);
+    var app = angular.module('myapp', ['course','profile', 'ngRoute', 'chart.js']);
 
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
