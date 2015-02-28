@@ -1,9 +1,12 @@
+<script src="assets/js/Chart.min.js"></script>
+<script src="app/chart.js"></script>
+
 <div class="container flex">
 
 
-        <div class="col-md-8 column">
+        <div class="col-md-8 column"  ng-controller="Discussion as discussion">
             <div class="row clearfix">
-                <div class="col-md-8 column" class="discussion" ng-controller="discussion">
+                <div class="col-md-8 column">
                     <h3>Discussion</h3>
                     <div class="discussionBox"></div>
 
@@ -13,16 +16,16 @@
                  <div class="row clearfix">
                		 <textarea class="col-md-6 column"></textarea>
                		 <div class="col-md-4 column">
-               		 	<span class="discussionBtn" ng-click="" id="q">Q</span>
-               		 	<span class="discussionBtn" ng-click="" id="s">S</span>
-               		 	<button type="button" class="postBtn btn btn-success">Post</button></div>
+               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()===1}" ng-click="discussion.setActiveBtn(1)" id="q">Q</span>
+               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()===2}" ng-click="discussion.setActiveBtn(2)" id="s">S</span>
+               		 	<button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button></div>
            		 </div>
             
         </div>
         <div class="col-md-4 column">
 
             <div class="row clearfix">
-                <div class="col-md-12 column" ng-controller="teamMember">
+                <div class="col-md-12 column" ng-controller="TeamMember">
                 	<h3>Team mates</h3>
                     <span class="singleMember" ng-repeat="data in team">
 						<img ng-src="{{data.avatar}}" width="25" height="25"></img>{{data.name}}
