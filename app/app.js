@@ -14,6 +14,15 @@
         avatar: 'assets/img/avatar3.png'
     }];
 
+    var discuss=[{
+        type:'q',
+        text:"what is ng app in angular js"
+    },
+    {
+        type:'s',
+        text:"Iam awsome.!"
+    }]
+
     var app = angular.module('myapp', ['course','ngRoute']);
 
     app.config(['$routeProvider', function($routeProvider) {
@@ -33,10 +42,16 @@
         }]);
 
     app.controller('Discussion', function() {
-            var activebtn=null;
+            var activebtn='q';
+            this.data=discuss;
+
+            this.liveDiscuss={
+                type:activebtn,
+                text:''
+            };
 
             this.setActiveBtn=function(num){
-                console.log(num+'s')
+                this.liveDiscuss.type=num;
                 activebtn=num;
             };
             this.getActiveBtn=function(){
@@ -44,10 +59,17 @@
             };
 
             this.doSubmit=function(){
-                console.log('d')
-                alert('d')
                 if(activebtn==null)
                     alert('Entry must be question or statement');
+                else{
+                    this.data.push(this.liveDiscuss);
+                    console.log(this.data);
+                    activebtn='q';
+                    this.liveDiscuss={
+                        type:activebtn,
+                        text:''
+                    };
+                }
             };
 
         })
