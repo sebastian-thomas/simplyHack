@@ -8,16 +8,31 @@
             <div class="row clearfix">
                 <div class="col-md-8 column">
                     <h3>Discussion</h3>
-                    <div class="discussionBox"></div>
+                    <div class="discussionBox">
+                        <ul>
+                            <li class="singleDiscussion" ng-repeat="discuss in discussion.data">
+                                <span class="discussionBtn" ng-show="{{discuss.type=='q'}}">Q</span>
+                                 <span class="discussionBtn" ng-show="{{discuss.type=='s'}}">S</span>
+                                {{discuss.text}}
+                                <span class="answer" ng-show="{{discuss.type=='q'}}">Answer</span>
+                            </li>
+                             <li class="singleDiscussion">
+                                <span class="discussionBtn" ng-show="discussion.liveDiscuss.text.length>0">{{discussion.liveDiscuss.type| uppercase}}</span>
+                                {{discussion.liveDiscuss.text}}
+                            </li>
+
+                        </ul>
+
+                    </div>
 
 
                 </div>
                 </div>
                  <div class="row clearfix">
-               		 <textarea class="col-md-6 column"></textarea>
+               		 <textarea class="col-md-6 column" ng-model="discussion.liveDiscuss.text"></textarea>
                		 <div class="col-md-4 column">
-               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()===1}" ng-click="discussion.setActiveBtn(1)" id="q">Q</span>
-               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()===2}" ng-click="discussion.setActiveBtn(2)" id="s">S</span>
+               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='q'}" ng-click="discussion.setActiveBtn('q')" id="q">Q</span>
+               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='s'}" ng-click="discussion.setActiveBtn('s')" id="s">S</span>
                		 	<button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button></div>
            		 </div>
             
