@@ -54,7 +54,7 @@ ul li{
 	overflow-y: scroll;
 
 }
-.answerbtn{
+.answerBullet{
 
 	display: inline-block;
 	background-color: #3b3b3b;
@@ -74,6 +74,11 @@ ul li{
 .answer{
 	display: block;
 	margin-left: 75px;
+}
+.answerBox{
+	position:absolute;
+	margin-left: 5px;
+	margin-top:20px;
 }
 .singleDiscussion{
 	padding: 5px;

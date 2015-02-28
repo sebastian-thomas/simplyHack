@@ -74,7 +74,6 @@
             this.doSubmit = function() {
                 if (this.liveDiscuss.text.length > 0) {
                     this.data.push(this.liveDiscuss);
-                    console.log(this.data);
                     activebtn = 'q';
                     this.liveDiscuss = {
                         type: activebtn,
@@ -102,8 +101,13 @@
         }])
         .controller("BarCtrl", function($scope) {
 
-            $scope.labels = ['Me', 'Aslam', 'Seb', 'Ibru'];
-            $scope.data = [[65, 59, 80, 81]];
+            $scope.labels = [];
+            $scope.data=[[]];
+            jQuery.each(memebers,function(index,data){
+                $scope.labels.push(data.name);
+                $scope.data[0].push(data.teamlevel)
+            })
+
         });
 
     app.directive('header', function() {
