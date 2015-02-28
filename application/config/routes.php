@@ -38,6 +38,8 @@
 |
 */
 
+$route['user/(:any)'] = 'user/getUserProfile/$1';
+$route['user'] = 'user/index';
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
