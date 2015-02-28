@@ -14,7 +14,7 @@
         avatar: 'assets/img/avatar3.png'
     }];
 
-    window.app = angular.module('myapp', ['ngRoute']);
+    var app = angular.module('myapp', ['course','ngRoute']);
 
     app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.

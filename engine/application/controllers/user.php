@@ -29,6 +29,11 @@ class User extends CI_Controller {
 		echo json_encode($this->team_model->getTeamPosts($id));
 	}
 
+	public function courses(){
+		$id = $this->session->userdata('user_id');
+		echo json_encode($this->user_model->getCourses($id));
+	}
+
 	public function inCrementChaptersCompleted(){
 
 	}

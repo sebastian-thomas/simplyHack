@@ -38,6 +38,7 @@
 |
 */
 $route['user/team/(:any)']='user/team/$1';
+$route['user/courses'] = 'user/courses';
 $route['user/(:any)'] = 'user/getUserProfile/$1';
 $route['user'] = 'user/index';
 $route['default_controller'] = "welcome";

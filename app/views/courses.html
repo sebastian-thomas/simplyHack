@@ -1,1 +1,16 @@
+<div class="container"> 
 <h1>Course listing goes here</h1>
+        <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-8 column"  ng-controller="CoursesController as cc">
+                    <h3>Courses</h3>
+                    <div ng-repeat="course in cc.courses">
+                    	<span>{{course.name}}</span>
+                    </div>
+
+
+                </div>
+                </div>
+        </div>
+
+</div>
