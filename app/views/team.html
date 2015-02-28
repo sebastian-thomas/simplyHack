@@ -4,66 +4,68 @@
 <div class="container flex">
 
 
-        <div class="col-md-8 column"  ng-controller="Discussion as discussion">
-            <div class="row clearfix">
-                <div class="col-md-8 column">
-                    <h3>Discussion</h3>
-                    <div class="discussionBox">
-                        <ul>
-                            <li class="singleDiscussion" ng-repeat="discuss in discussion.data">
-                                <span class="discussionBtn" ng-show="{{discuss.type=='q'}}">Q</span>
-                                 <span class="discussionBtn" ng-show="{{discuss.type=='s'}}">S</span>
-                                {{discuss.text}}
-                                <span class="answer" ng-show="{{discuss.type=='q'}}">Answer</span>
-                            </li>
-                             <li class="singleDiscussion">
-                                <span class="discussionBtn" ng-show="discussion.liveDiscuss.text.length>0">{{discussion.liveDiscuss.type| uppercase}}</span>
-                                {{discussion.liveDiscuss.text}}
-                            </li>
+    <div class="col-md-8 column" ng-controller="Discussion as discussion">
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <h3>Discussion</h3>
+                <div class="discussionBox">
+                    <ul>
+                        <li class="singleDiscussion" ng-repeat="discuss in discussion.data">
+                            <span class="discussionBtn" ng-show="{{discuss.type=='q'}}">Q</span>
+                            <span class="discussionBtn" ng-show="{{discuss.type=='s'}}">S</span> {{discuss.username+' : '+discuss.text}}
+                            <span class="answerBtn" ng-click="discussion.activateAnswer[$index]=1" ng-show="{{discuss.type=='q'}}">Answer<textarea style="position:absolute;margin-top:20px;" ng-show="discussion.activateAnswer[$index]===1" ng-model="discussion.answerTemp[$index]" ng-enter="discussion.answerEntered($index)"></textarea></span>
+                            <span class="answer" ng-repeat="answer in discuss.answers">
+                                    <span class="answerbtn"></span>{{answer.username+' : '+answer.text}}
+                            </span>
+                        </li>
+                        <li class="singleDiscussion" ng-show="discussion.liveDiscuss.text.length>0">
+                            <span class="discussionBtn">{{discussion.liveDiscuss.type| uppercase}}</span> {{discussion.liveDiscuss.username+' : '+discussion.liveDiscuss.text}}
+                        </li>
 
-                        </ul>
-
-                    </div>
-
+                    </ul>
 
                 </div>
-                </div>
-                 <div class="row clearfix">
-               		 <textarea class="col-md-6 column" ng-model="discussion.liveDiscuss.text"></textarea>
-               		 <div class="col-md-4 column">
-               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='q'}" ng-click="discussion.setActiveBtn('q')" id="q">Q</span>
-               		 	<span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='s'}" ng-click="discussion.setActiveBtn('s')" id="s">S</span>
-               		 	<button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button></div>
-           		 </div>
-            
-        </div>
-        <div class="col-md-4 column">
 
-            <div class="row clearfix">
-                <div class="col-md-12 column" ng-controller="TeamMember">
-                	<h3>Team mates</h3>
-                    <span class="singleMember" ng-repeat="data in team">
-						<img ng-src="{{data.avatar}}" width="25" height="25"></img>{{data.name}}
-					</span>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <h3>Team performance</h3>
-					<canvas id="canvas" height="200" width="200"></canvas>
-					
-                </div>
-                
-
-            </div>
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                <button type="button" class="btn btn-danger">Leave this group</button>
-                </div>
 
             </div>
         </div>
-
-
+        <div class="row clearfix">
+            <textarea required class="col-md-6 column" ng-model="discussion.liveDiscuss.text"></textarea>
+            <div class="col-md-4 column">
+                <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='q'}" ng-click="discussion.setActiveBtn('q')" id="q">Q</span>
+                <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='s'}" ng-click="discussion.setActiveBtn('s')" id="s">S</span>
+                <button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button>
+            </div>
+        </div>
 
     </div>
+    <div class="col-md-4 column">
+
+        <div class="row clearfix">
+            <div class="col-md-12 column" ng-controller="TeamMember">
+                <h3>Team mates</h3>
+                <span class="singleMember" ng-repeat="data in team">
+                        <img ng-src="{{data.avatar}}" width="25" height="25"></img>{{data.name}}
+                    </span>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column" ng-controller="BarCtrl">
+                <h3>Team performance</h3>
+                <canvas id="bar" class="chart chart-bar" data="data" labels="labels"></canvas> 
+
+            </div>
+
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <button type="button" class="btn btn-danger">Leave this group</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
