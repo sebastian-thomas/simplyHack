@@ -14,7 +14,7 @@
         avatar: 'assets/img/avatar3.png'
     }];
 
-    var app = angular.module('myapp', ['ngRoute']);
+    window.app = angular.module('myapp', ['ngRoute']);
 
     app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.
@@ -25,7 +25,7 @@
                 templateUrl: 'app/views/team.html'
             }).
             when('/course', {
-                templateUrl: 'app/views/course.html'
+                templateUrl: 'app/views/courses.html'
             }).
             otherwise({
                 redirectTo: '/public'
