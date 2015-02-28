@@ -22,7 +22,7 @@
 			return chapters;
 		};
 
-		userc.finishChapter = function(cid){
+		userc.finishChapter = function(cid,chap){
 			console.log(cid);
 			var postData = {
 				'course' : cid
@@ -30,11 +30,14 @@
 			$http({
 	            url: 'engine/index.php/user/incrch',
 	            method: "POST",
-	            data: {'course':cid},
+	            data:$.param({
+			      "course" : cid
+			    }),
 	            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 	        }).success(function (data, status, headers, config) {
 	                console.log(data);
-	                console.log(headers);
+	                document.getElementById('btn'+chap).disabled = true;
+	                //console.log(headers);
 	        }).error(function (data, status, headers, config) {
 	                console.log(data);
 	            });

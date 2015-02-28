@@ -1,0 +1,17 @@
+#container{
+	width:60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#top_section{
+	border : 1px solid;
+}
+
+#mid_section{
+	border : 1px solid;
+}
+
+#bot_section{
+	border : 1px solid;
+}
