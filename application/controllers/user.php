@@ -7,6 +7,7 @@ class User extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->model('team_model');
+		$this->session->set_userdata('user_id', "1");
 	}
 
 

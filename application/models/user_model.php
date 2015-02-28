@@ -3,7 +3,7 @@ class User_model extends CI_Model {
 
 	public function __construct()
 	{
-		$this->load->database();
+	
 	}
 
 	public function getDetails($id){
@@ -59,6 +59,25 @@ class User_model extends CI_Model {
 		$row = $query->row();
 		return $row->name;
 	}
+
+	public function getCourseLevel($uid,$cid){
+		$query = $this->db->get_where('user_course',array('user_id' => $uid,'course_id' => $cid));
+		$completedChap = 0;
+		if($query->num_rows() > 0){
+			$row = $query->row();
+			$completedChap = $row->chapterCompleted;
+		}
+		
+
+		$query2 = $this->db->get_where('course',array('id' => $cid));
+		$row2 = $query2->row();
+		$totalChapters = $row2->noOfChapters;
+
+		$level = (int) (($completedChap/$totalChapters) * 10);
+		return $level;
+	}
+
+
 
 	public function getCourseNoChapters($id){
 		$query = $this->db->get_where('course', array('id' => $id));

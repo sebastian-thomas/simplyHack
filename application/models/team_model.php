@@ -3,7 +3,7 @@ class Team_model extends CI_Model {
 
 	public function __construct()
 	{
-		$this->load->database();
+		
 		$this->load->model('user_model');
 	}
 
@@ -21,8 +21,14 @@ class Team_model extends CI_Model {
 
 	public function teamDetails($tid){
 		$team = array();
-		$query = $this->db->get_where('team_user',array('team_id' => $tid));
+		$query2 = $this->db->get_where('teams',array('id'=>$tid));
+		$row2 = $query2->row();
+
 		$team['id'] = $tid;
+		$team['course_id'] = $row2->course;
+
+		$query = $this->db->get_where('team_user',array('team_id' => $tid));
+
 		$memebers = array();
 		foreach($query->result() as $row){
 			$member = array();
@@ -30,6 +36,7 @@ class Team_model extends CI_Model {
 			$mdetails = $this->user_model->getDetails($row->user_id);
 			$member['name'] = $mdetails['name'];
 			$member['imgUrl'] = $mdetails['imgUrl'];
+			$member['course_level'] = $this->user_model->getCourseLevel($row->user_id,$row2->course);
 			array_push($memebers, $member);
 		}
 
