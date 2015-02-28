@@ -1,0 +1,51 @@
+<div class="container flex">
+
+
+        <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-8 column" class="discussion" ng-controller="discussion">
+                    <h3>Discussion</h3>
+                    <div class="discussionBox"></div>
+
+
+                </div>
+                </div>
+                 <div class="row clearfix">
+               		 <textarea class="col-md-6 column"></textarea>
+               		 <div class="col-md-4 column">
+               		 	<span class="discussionBtn" ng-click="" id="q">Q</span>
+               		 	<span class="discussionBtn" ng-click="" id="s">S</span>
+               		 	<button type="button" class="postBtn btn btn-success">Post</button></div>
+           		 </div>
+            
+        </div>
+        <div class="col-md-4 column">
+
+            <div class="row clearfix">
+                <div class="col-md-12 column" ng-controller="teamMember">
+                	<h3>Team mates</h3>
+                    <span class="singleMember" ng-repeat="data in team">
+						<img ng-src="{{data.avatar}}" width="25" height="25"></img>{{data.name}}
+					</span>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h3>Team performance</h3>
+					<canvas id="canvas" height="200" width="200"></canvas>
+					
+                </div>
+                
+
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                <button type="button" class="btn btn-danger">Leave this group</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>

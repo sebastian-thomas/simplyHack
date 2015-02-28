@@ -1,0 +1,39 @@
+*{
+	padding: 0px;
+	margin:0px;
+}
+.column{
+	padding-left: 0px !important;
+}
+.discussionBtn{
+	cursor: pointer;
+	display: inline-block;
+	padding: 6px 0px 0px 10px;
+	background-color: #3b3b3b;
+	color: #fff;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	margin:10px;
+}
+
+.discussionBox{
+	width: 600px;
+	height: 400px;
+	border: 1px solid grey;
+	margin-bottom: 10px;
+
+}
+.singleMember{
+  display: block;
+  font-size: 20px;
+
+}
+.singleMember img{
+  margin-right: 10px;
+  
+}
+
+.postBtn{
+	width: 100px;
+}
