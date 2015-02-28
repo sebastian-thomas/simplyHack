@@ -16,7 +16,10 @@
 	height: 30px;
 	margin:10px;
 }
-
+.discussionBtnActive{
+	background-color: #0fa508;
+	color: #fff;
+}
 .discussionBox{
 	width: 600px;
 	height: 400px;

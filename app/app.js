@@ -30,14 +30,33 @@
             otherwise({
                 redirectTo: '/public'
             });
-        }])
-        .controller('discussion', function() {
+        }]);
+
+    app.controller('Discussion', function() {
+            var activebtn=null;
+
+            this.setActiveBtn=function(num){
+                console.log(num+'s')
+                activebtn=num;
+            };
+            this.getActiveBtn=function(){
+                return activebtn;
+            };
+
+            this.doSubmit=function(){
+                console.log('d')
+                alert('d')
+                if(activebtn==null)
+                    alert('Entry must be question or statement');
+            };
 
         })
-        .controller('teamMember', ['$scope', function($scope) {
+        .controller('TeamMember', ['$scope', function($scope) {
             $scope.team = memebers;
 
-        }]).directive('header', function() {
+        }]);
+
+    app.directive('header', function() {
             return {
                 restrict: 'E',
                 templateUrl: 'app/views/header.html'
@@ -49,4 +68,6 @@
                 templateUrl: 'app/views/footer.html'
             };
         });
+
+
 })();
