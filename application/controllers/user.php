@@ -13,10 +13,11 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$id = $this->session->userdata('user_id');
+		echo json_encode($this->user_model->getPublicProfile($id));
 	}
 
-	public function getUserProfile($id = 0){
+	public function getUserProfile($id=0){
 		//echo $id;
 		echo json_encode($this->user_model->getPublicProfile($id));
 	}
@@ -26,6 +27,10 @@ class User extends CI_Controller {
 		echo json_encode($this->team_model->teamDetails($id));
 		echo "<br><br>";
 		echo json_encode($this->team_model->getTeamPosts($id));
+	}
+
+	public function inCrementChaptersCompleted(){
+
 	}
 }
 
