@@ -37,7 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+$route['user/team/(:any)']='user/team/$1';
 $route['user/(:any)'] = 'user/getUserProfile/$1';
 $route['user'] = 'user/index';
 $route['default_controller'] = "welcome";

@@ -6,6 +6,19 @@ class User_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function getDetails($id){
+		$query = $this->db->get_where('user', array('id' => $id));
+		$res = array();
+		if($query->num_rows() > 0){
+			$row = $query->row();
+			$res['id'] = $row->id;
+			$res['name'] = $row->name;
+			$res['email'] = $row->email;
+			$res['imgUrl'] = $row->imgUrl;
+		}
+		return $res;
+	}
+
 	public function getPublicProfile($id){
 		$query = $this->db->get_where('user', array('id' => $id));
 		$res = array();
