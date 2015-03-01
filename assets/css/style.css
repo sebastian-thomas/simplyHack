@@ -68,11 +68,11 @@ ul li{
 }
 .answerBtn{
 	margin-left: 30px;
-	color: blue;
 	cursor: pointer;
 }
-.answerBtn textarea{
-	color: black;
+.answerBtn .btn-info{
+	border: none;
+	width: 100px;
 }
 .answer{
 	display: block;

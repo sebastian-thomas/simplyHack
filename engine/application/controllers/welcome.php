@@ -53,6 +53,14 @@ class Welcome extends CI_Controller {
 		$this->gen_model->insertAns($data);
 	}
 
+	public function addBadge(){
+		$data = array(
+			'user_id' => $this->input->post('user_id'),
+			'badge_id' => $this->input->post('badge_id')
+			);
+		$this->gen_model->insertBadge($data);
+	}
+
 	
 }
 
