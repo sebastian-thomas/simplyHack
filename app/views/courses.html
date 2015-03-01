@@ -10,7 +10,7 @@
                     <div ng-show="selectedCourse">
                     	<table class="table">
                     		<tr ng-repeat="chapter in cc.rangev('0',selectedCourse.completedChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn btn-lg btn-primary" disabled="disabled">Finish</button></td></tr>
-                    		<tr ng-repeat="chapter in cc.rangev(selectedCourse.completedChapters,selectedCourse.totalChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn btn-lg btn-primary" ng-click="cc.finishChapter(selectedCourse.id)">Finish</button></td></tr>
+                    		<tr ng-repeat="chapter in cc.rangev(selectedCourse.completedChapters,selectedCourse.totalChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn btn-lg btn-primary" id="btn{{chapter}}" ng-click="cc.finishChapter(selectedCourse.id,chapter)">Finish</button></td></tr>
                     	
                     	</table>
                     </div>

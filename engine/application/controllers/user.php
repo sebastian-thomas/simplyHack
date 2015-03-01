@@ -41,5 +41,9 @@ class User extends CI_Controller {
 		$this->user_model->incrementCourseCompletion($id,$course);
 		echo "done " . $course;
 	}
+
+	public function setSession($uid){
+		$this->session->set_userdata('user_id', $uid);
+	}
 }
 
