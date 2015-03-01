@@ -1,22 +1,31 @@
 <div class="container"> 
-<h3>Course listing goes here</h3>
-        <div class="col-md-8 column">
-            <div class="row clearfix">
-                <div class="col-md-8 column"  ng-controller="CoursesController as cc">
+<h3 class="col-md-offset-2">Course listing goes here</h3>
+<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+                <div class="col-md-8"  ng-controller="CoursesController as cc">
                     
 
+                    
                     <select class="form-control" ng-model="selectedCourse" ng-selected="0" ng-options="item as item.name for item in cc.courses"></select>
 
                     <div ng-show="selectedCourse">
+
                     	<table class="table">
-                    		<tr ng-repeat="chapter in cc.rangev('0',selectedCourse.completedChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn btn-lg btn-primary" disabled="disabled">Finish</button></td></tr>
-                    		<tr ng-repeat="chapter in cc.rangev(selectedCourse.completedChapters,selectedCourse.totalChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn btn-lg btn-primary" id="btn{{chapter}}" ng-click="cc.finishChapter(selectedCourse.id,chapter)">Finish</button></td></tr>
+                    		<tr ng-repeat="chapter in cc.rangev('0',selectedCourse.completedChapters)"> <td>Chapter {{chapter}} </td><td><button type="button" class="btn  btn-primary" disabled="disabled">Finish</button></td>
+                            </tr>
+
+                    		<tr ng-repeat="chapter in cc.rangev(selectedCourse.completedChapters,selectedCourse.totalChapters)"> <td> Chapter {{chapter}}  </td><td><button type="button" class="btn btn-primary" id="btn{{chapter}}" ng-click="cc.finishChapter(selectedCourse.id,chapter)">Finish</button></td></tr>
                     	
                     	</table>
                     </div>
 
                 </div>
+
                 </div>
+
         </div>
+
+    </div>
 
 </div>
