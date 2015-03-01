@@ -127,7 +127,7 @@
                     .success(function(data){
                         $scope.team = data.memebers;
                         jQuery.each($scope.team,function(index,data){
-                            $scope.labels.push(data.username);
+                            $scope.labels.push(data.username.split(" ")[0]);
                             $scope.data[0].push(data.teamlevel)
                         });
                     })

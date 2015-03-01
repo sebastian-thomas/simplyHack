@@ -30,6 +30,29 @@ class Welcome extends CI_Controller {
 		echo json_encode($this->team_model->getTeamPosts($id));
 	}
 
+	public function insertQuestion(){
+
+		$data = array (
+			'team_id' => '1',
+			'user_id' => $this->session->userdata('user_id'),
+			'question' => $this->input->post('text'),
+			'type' => $this->input->post('type')
+			);
+
+		$this->gen_model->insertPost($data);
+
+	}
+
+	public function insertAns(){
+		$data = array (
+			'question_id' => $this->session->post('question_id'),
+			'user_id' => $this->session->userdata('user_id'),
+			'answer' => $this->input->post('text')
+			);
+
+		$this->gen_model->insertAns($data);
+	}
+
 	
 }
 

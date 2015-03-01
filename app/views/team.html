@@ -1,20 +1,20 @@
 <script src="assets/js/Chart.min.js"></script>
 <script src="app/chart.js"></script>
 
-<div class="container flex">
+<div class="container" class="col-md-12">
 
 
-    <div class="col-md-8 column" ng-controller="Discussion as discussion">
+    <div ng-controller="Discussion as discussion">
         <div class="row clearfix">
-            <div class="col-md-8 column">
-                <h3>Discussion</h3>
-                <div class="discussionBox">
+            <div class="col-md-8 row">
+                <h3>Discussion on #AngularJs<i class="fa fa-volume-up"></i></h3>
+                <div class="discussionBox col-md-11">
                     <ul>
                         <li class="singleDiscussion" ng-repeat="discuss in discussion.data">
                             <span class="discussionBtn" ng-show="{{discuss.type=='q'}}">Q</span>
                             <span class="discussionBtn" ng-show="{{discuss.type=='s'}}">S</span>
                             {{discuss.username+' : '+discuss.text}}
-                            <span class="answerBtn" ng-click="discussion.activateAnswer[$index]=1" ng-show="{{discuss.type=='q'}}">Answer
+                            <span class="answerBtn" ng-click="discussion.activateAnswer[$index]=1" class="btn" ng-show="{{discuss.type=='q'}}">  <button class="btn-info">Answer  this </button>
                             <textarea class="answerBox" ng-show="discussion.activateAnswer[$index]===1" ng-model="discussion.answerTemp[$index]" ng-enter="discussion.answerEntered($index)"></textarea></span>
                             <span class="answer" ng-repeat="answer in discuss.answers">
                             <span class="answerBullet"></span>{{answer.username+' : '+answer.text}}
@@ -29,38 +29,45 @@
                 </div>
 
 
-            </div>
-        </div>
-        <div class="row clearfix">
-            <textarea required class="col-md-6 column" ng-enter="discussion.doSubmit()" ng-model="discussion.liveDiscuss.text"></textarea>
+           
+  <textarea required class="col-md-6 " ng-enter="discussion.doSubmit()" ng-model="discussion.liveDiscuss.text"></textarea>
             <div class="col-md-4 column">
                 <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='q'}" ng-click="discussion.setActiveBtn('q')" id="q">Q</span>
                 <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='s'}" ng-click="discussion.setActiveBtn('s')" id="s">S</span>
                 <button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button>
             </div>
-        </div>
+             </div>
 
-    </div>
-    <div class="col-md-4 column">
+ 
+
+             <div class="col-md-4 column">
 
         <div class="row clearfix">
-            <div class="col-md-12 column" ng-controller="TeamMember">
-                <h3>Team mates</h3>
+            <div class="col-md-8 column" ng-controller="TeamMember">
+                <h3><i class="fa fa-group"></i> Team mates</h3>
+                <hr/>
                 <span class="singleMember" ng-repeat="data in team">
-                        <img ng-src="{{data.avatar}}" width="25" height="25"></img>{{data.username}}
+
+                        <img ng-src="{{data.avatar}}" width="25" height="25"></img>
+
+                        <t>{{data.username}}</t>
                     </span>
             </div>
         </div>
-        <div class="row clearfix">
+        <br/>
+        <div class="row">
             <div class="col-md-12 column" ng-controller="BarCtrl">
-                <h3>Team performance</h3>
-                <canvas id="bar" width="100" height="100" class="chart chart-bar" data="data" labels="labels"></canvas>
+
+                <h3><i class="fa fa-bar-chart"></i> Team performance</h3>
+                <hr/>
+                <canvas id="bar" class="chart chart-bar" data="data" labels="labels"></canvas>
+
 
             </div>
 
 
         </div>
-        <div class="row clearfix">
+        <div class="row">
             <div class="col-md-12 column">
                 <button type="button" class="btn btn-danger">Leave this group</button>
             </div>
@@ -69,5 +76,16 @@
     </div>
 
 
-
+        </div>
+   <!--      <div class="row clearfix">
+           <textarea required class="col-md-4 column" ng-enter="discussion.doSubmit()" ng-model="discussion.liveDiscuss.text"></textarea>
+            <div class="col-md-4 column">
+                <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='q'}" ng-click="discussion.setActiveBtn('q')" id="q">Q</span>
+                <span class="discussionBtn" ng-class="{'discussionBtnActive': discussion.getActiveBtn()=='s'}" ng-click="discussion.setActiveBtn('s')" id="s">S</span>
+                <button type="button" class="postBtn btn btn-success" ng-click="discussion.doSubmit()">Post</button>
+            </div>
+        </div>
+ -->
+       
+    </div>
 </div>

@@ -3,11 +3,10 @@
 <link href="assets/css/profile.css" type="text/css" rel="stylesheet">
 
 
-<div id="container" >
+<div id="container" ng-controller="ProfileController as Profile">
 
-      <div class="row">
-        <div class="span12">
-
+    <div class="row">
+    <div class="span12">
 
 	<div id="top_section" class="row">
 		<div class="small_box col-md-4">
@@ -15,8 +14,8 @@
 		</div>
 		<div class="small_box col-md-4">
 			<table class="table margin-top-40">
-				<tr><td><b style="font-size:1.6em">Ibrahim M T</b></td></tr>
-				<tr><td>ibru@gmail.com</td></tr>
+				<tr><td><b style="font-size:1.6em">{{Profile.user.name}}</b></td></tr>
+				<tr><td>{{Profile.user.email}}</td></tr>
 				<tr><td>Joined on 20 Jan 2015 </td></tr>
 			</table>
 		
@@ -39,29 +38,19 @@
 
 		<div class="tab-content">
 	  		<div role="tabpanel" class="tab-pane" id="courses" ng-class="{active:$scope.profiletab===1}">
-	  			<table class="table courses-table margin-left-20 margin-top-20">
-	  				<tr>
-	  					<td>1</td>
-	  					<td>AngularJs</td>
-	  					<td><img class="course-levels" src="assets/img/levels/1.png"/></td>
-	  					<td>Started on 20 jan 2015</td>
-	  					<td>Completed on </td>
+	  			<table class="table courses-table margin-left-20 margin-top-20" >
+	  				<tr ng-repeat="course in Profile.user.courses">
+	  					<td>{{course.id}}</td>
+	  					<td>{{course.name}}</td>
+	  					<td><img class="course-levels" src="assets/img/levels/{{course.level}}.png"/></td>
+	  					<td>Started on {{course.startedOn |  dateToISO | date:'MM/dd/yyyy'}}</td>
+	  					<td >Completed on :<span ng-hide="course.completedOn =='0000-00-00 00:00:00'">{{course.completedOn }}</span></td>
 
                    </tr>
-
-
-
-                    
+   
 	  			</table>
 	  		</div>
 	  		<div role="tabpanel" class="tab-pane" id="stud_badges" ng-class="{active:$scope.profiletab===2}">
-	  		<!-- 	<ul>
-	  				<li><img src="assets/img/student_badges/self.png"/></li>
-	  				<li><img src="assets/img/student_badges/inquisitive.png"/></li>
-	  				<li><img src="assets/img/student_badges/talkative.png"/></li>
-	  				<li><img src="assets/img/student_badges/student.png"/></li>
-	  			</ul>
-              -->
 <table class="table-badges table" class="table">
 <tr>
    <td><img class="badges-img"  style=" filter: grayscale(0);-webkit-filter: grayscale(0%); filter: grayscale(0%);" src="assets/img/student_badges/self.png"/></td>
