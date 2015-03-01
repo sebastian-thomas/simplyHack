@@ -29,5 +29,9 @@ class Gen_model extends CI_Model {
 		$this->db->insert('answers',$data);
 	}
 
+	public function insertBadge($data){
+		$this->db->insert('user_badges');
+	}
+
 
 }
