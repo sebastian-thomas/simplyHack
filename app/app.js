@@ -45,8 +45,8 @@
         when('/course', {
             templateUrl: 'app/views/courses.html'
         }).
-        when('/course', {
-            templateUrl: 'app/views/entroll.html'
+        when('/enroll', {
+            templateUrl: 'app/views/enroll.html'
         }).
         otherwise({
             redirectTo: '/public'
