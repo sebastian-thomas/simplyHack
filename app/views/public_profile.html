@@ -42,7 +42,7 @@
 	  				<tr ng-repeat="course in Profile.user.courses">
 	  					<td>{{course.id}}</td>
 	  					<td>{{course.name}}</td>
-	  					<td><img class="course-levels" src="assets/img/levels/{{course.level}}.png"/></td>
+	  					<td><img class="course-levels" ng-src="assets/img/levels/{{course.level}}.png"/></td>
 	  					<td>Started on {{course.startedOn}}</td>
 	  					<td>Completed on {{course.completedOn}}</td>
 
