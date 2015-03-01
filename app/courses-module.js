@@ -34,6 +34,24 @@
 			return chapters;
 		};
 
+		userc.enroll = function(cid){
+			console.log(cid);
+			$http({
+	            url: 'engine/index.php/enroll',
+	            method: "POST",
+	            data:$.param({
+			      "course" : cid
+			    }),
+	            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	        }).success(function (data, status, headers, config) {
+	                console.log(data);
+	                document.getElementById('enrollbtn'+cid).innerHTML = "Enrolled";
+	                //console.log(headers);
+	        }).error(function (data, status, headers, config) {
+	                console.log(data);
+	            });
+		};
+
 		userc.finishChapter = function(cid,chap){
 			console.log(cid);
 			var postData = {

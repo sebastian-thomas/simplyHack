@@ -61,6 +61,15 @@ class Welcome extends CI_Controller {
 		$this->gen_model->insertBadge($data);
 	}
 
+	public function enroll(){
+		$data = array(
+			'user_id' => $this->session->userdata('user_id'),
+			'course_id' => $this->input->post('course'),
+			'chapterCompleted' =>'1'
+			);
+		$this->gen_model->addCourse($data);
+	}
+
 	
 }
 

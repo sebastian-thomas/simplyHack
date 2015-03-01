@@ -6,10 +6,10 @@
 				<table class="table margin-top-20" ng-repeat="course in cc.unenCourses">
 					<tr><td style="width: 75%;"><b>{{course.name}}</b></td><td></td></tr>
 					<tr><td>Price</td><td>{{course.price}} $</td></tr>
-					<tr><td><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#enroll_options">Enroll</button>
-				      <div id="enroll_options" class="collapse out">
-				      		Want to enroll as an <button type="button" class="btn btn-info">Individual</button> OR 
-				      		Want to enroll as a <button type="button" class="btn btn-info">Team</button>
+					<tr><td><button type="button" class="btn btn-info" data-toggle="collapse" id="enrollbtn{{course.id}}" data-target="#enroll_options{{course.id}}">Enroll</button>
+				      <div id="enroll_options{{course.id}}" class="collapse out">
+				      		Want to enroll as an <button ng-click="cc.enroll(course.id)" type="button" class="btn btn-info">Individual</button> OR 
+				      		Want to enroll as a <button  ng-click="cc.enroll(course.id)" type="button" class="btn btn-info">Team</button>
 
 				      </div>
 				    </td><td></td>

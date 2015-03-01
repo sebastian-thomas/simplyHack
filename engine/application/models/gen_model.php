@@ -30,7 +30,11 @@ class Gen_model extends CI_Model {
 	}
 
 	public function insertBadge($data){
-		$this->db->insert('user_badges');
+		$this->db->insert('user_badges',$data);
+	}
+
+	public function addCourse($data){
+		$this->db->insert('user_course',$data);
 	}
 
 
