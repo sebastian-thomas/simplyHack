@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.10
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 01, 2015 at 01:55 AM
--- Server version: 5.6.23
--- PHP Version: 5.4.24
+-- Host: 127.0.0.1
+-- Generation Time: Mar 01, 2015 at 05:06 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,12 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `answers` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `answer` text NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `answers`
@@ -48,10 +49,11 @@ INSERT INTO `answers` (`id`, `question_id`, `user_id`, `answer`, `createdAt`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `badges` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `badge` varchar(200) NOT NULL,
-  `img` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `img` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -60,11 +62,12 @@ CREATE TABLE IF NOT EXISTS `badges` (
 --
 
 CREATE TABLE IF NOT EXISTS `course` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `noOfChapters` int(11) NOT NULL,
-  `price` float NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `course`
@@ -83,13 +86,14 @@ INSERT INTO `course` (`id`, `name`, `noOfChapters`, `price`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `questions` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `team_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `question` text NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `type` varchar(2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `type` varchar(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `questions`
@@ -106,10 +110,11 @@ INSERT INTO `questions` (`id`, `team_id`, `user_id`, `question`, `createdAt`, `t
 --
 
 CREATE TABLE IF NOT EXISTS `teams` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `MaxNoOfMembers` int(11) NOT NULL,
-  `course` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `course` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `teams`
@@ -135,7 +140,9 @@ CREATE TABLE IF NOT EXISTS `team_user` (
 
 INSERT INTO `team_user` (`team_id`, `user_id`) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(1, 4),
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -144,12 +151,13 @@ INSERT INTO `team_user` (`team_id`, `user_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `imgUrl` varchar(200) NOT NULL,
-  `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `user`
@@ -157,9 +165,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `email`, `name`, `imgUrl`, `createdOn`) VALUES
 (1, 'sebastianthomas1@live.com', 'Sebastian Thomas', 'https://avatars2.githubusercontent.com/u/1202183?v=3&s=460', '2015-02-28 09:42:27'),
-(2, 'xachu4u@gmail.com', 'Aslam Abbas', '', '2015-02-28 09:43:22'),
-(3, 'shyjal99@gmail.com', 'Shyjal Raazi', '', '2015-02-28 09:44:02'),
-(4, 'ibru@gmail.com', 'Ibru', '', '2015-02-28 09:44:02');
+(2, 'xachu4u@gmail.com', 'Aslam Abbas', 'https://avatars1.githubusercontent.com/u/1219448?v=3&s=460', '2015-02-28 09:43:22'),
+(3, 'shyjal99@gmail.com', 'Shyjal Raazi', 'https://avatars3.githubusercontent.com/u/1215425?v=3&s=460', '2015-02-28 09:44:02'),
+(4, 'ibru@gmail.com', 'Ibrahim mt', 'https://avatars3.githubusercontent.com/u/8084798?v=3&s=460', '2015-02-28 09:44:02');
 
 -- --------------------------------------------------------
 
@@ -168,10 +176,11 @@ INSERT INTO `user` (`id`, `email`, `name`, `imgUrl`, `createdOn`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user_badges` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `badge_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `badge_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -192,94 +201,12 @@ CREATE TABLE IF NOT EXISTS `user_course` (
 --
 
 INSERT INTO `user_course` (`user_id`, `course_id`, `chapterCompleted`, `startedOn`, `completedOn`) VALUES
-(1, 1, 10, '2015-02-28 10:10:58', '0000-00-00 00:00:00'),
-(1, 2, 5, '2015-02-28 19:22:27', '0000-00-00 00:00:00');
+(1, 1, 11, '2015-03-01 04:06:15', '0000-00-00 00:00:00'),
+(1, 2, 5, '2015-02-28 19:22:27', '0000-00-00 00:00:00'),
+(2, 1, 5, '2015-03-01 03:51:29', '0000-00-00 00:00:00'),
+(4, 1, 7, '2015-03-01 03:52:17', '0000-00-00 00:00:00'),
+(3, 1, 10, '2015-03-01 03:54:10', '0000-00-00 00:00:00');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `answers`
---
-ALTER TABLE `answers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `badges`
---
-ALTER TABLE `badges`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `course`
---
-ALTER TABLE `course`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `teams`
---
-ALTER TABLE `teams`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `user_badges`
---
-ALTER TABLE `user_badges`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `answers`
---
-ALTER TABLE `answers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `badges`
---
-ALTER TABLE `badges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `teams`
---
-ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `user_badges`
---
-ALTER TABLE `user_badges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
