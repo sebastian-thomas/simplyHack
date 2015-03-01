@@ -46,6 +46,7 @@ $route['user'] = 'user/index';
 
 $route['teammem'] = 'welcome/teamMem';
 $route['teampost'] = 'welcome/teamPosts';
+$route['insertbadge'] = 'welcome/addBadge';
 $route['unenrolledcou'] = 'welcome/getUnentrolledCourses';
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
