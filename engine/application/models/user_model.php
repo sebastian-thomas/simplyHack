@@ -19,6 +19,18 @@ class User_model extends CI_Model {
 		return $res;
 	}
 
+	public function getName($id){
+		$query = $this->db->get_where('user', array('id' => $id));
+		$res = array();
+		if($query->num_rows() > 0){
+			$row = $query->row();
+			
+			$res['name'] = $row->name;
+			
+		}
+		return $res['name'];
+	}
+
 	public function getPublicProfile($id){
 		$query = $this->db->get_where('user', array('id' => $id));
 		$res = array();

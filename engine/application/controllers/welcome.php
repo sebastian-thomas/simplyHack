@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('gen_model');
+		$this->load->model('team_model');
 	}
 
 	public function index()
@@ -17,6 +18,16 @@ class Welcome extends CI_Controller {
 	public function getUnentrolledCourses(){
 		$uid = $this->session->userdata('user_id');
 		echo json_encode($this->gen_model->getNonEnrolledCourses($uid));
+	}
+
+	public function teamMem(){
+		$id = 1;
+		echo json_encode($this->team_model->teamDetails($id));
+	}
+
+	public function teamPosts(){
+		$id = 1;
+		echo json_encode($this->team_model->getTeamPosts($id));
 	}
 
 	
