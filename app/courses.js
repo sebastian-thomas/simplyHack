@@ -5,6 +5,7 @@
 	app.controller('CoursesController',['$http',function($http){
 		var userc = this;
 		userc.courses = [];
+		userc.unenCourses = [];
 		$http.get('engine/index.php/user/courses')
 			.success(function(data){
 				userc.courses = data;
@@ -12,6 +13,17 @@
 			.error(function(){
 				console.log("Error");
 			});
+
+		$http.get('engine/index.php/unenrolledcou')
+			.success(function(data){
+				userc.unenCourses = data;
+				console.log("data");
+			})
+			.error(function(){
+				console.log("Error");
+			});
+
+
 
 		userc.rangev = function(min,max){
 			chapters = [];
