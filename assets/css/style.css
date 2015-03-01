@@ -14,7 +14,8 @@ ul li{
 	border-radius: 0px;
 }
 .logo{
-	background: #f50;
+	background: url('../img/logo.png');
+	background-size: cover;
 	color: #fff !important;
 	border-radius: 50%;
 	width: 45px;
@@ -24,7 +25,7 @@ ul li{
 	margin-right: 5px;
 }
 .logo:hover{
-	background: #f50 !important;
+
 }
 .column{
 	padding-left: 0px !important;
@@ -52,7 +53,7 @@ ul li{
 }
 .discussionBox{
 	
-	min-height: 400px;
+	min-height: 430px;
 	margin-bottom: 10px;
 	overflow-y: scroll;
 
