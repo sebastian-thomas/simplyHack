@@ -2,6 +2,9 @@
 	padding: 0px;
 	margin:0px;
 }
+body{
+	font-family: 'Pontano Sans', sans-serif;
+}
 ul li{
 	list-style-type: none;
     padding: 0px;
@@ -48,8 +51,8 @@ ul li{
 	color: #fff;
 }
 .discussionBox{
-	width: 600px;
-	height: 400px;
+	
+	min-height: 400px;
 	margin-bottom: 10px;
 	overflow-y: scroll;
 
@@ -85,7 +88,8 @@ ul li{
 }
 .singleMember{
   display: block;
-  font-size: 20px;
+  font-size: 16px;
+  margin-top: 5px;
 
 }
 .singleMember img{
