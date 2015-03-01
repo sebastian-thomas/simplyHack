@@ -44,6 +44,8 @@ $route['user/setsession/(:any)'] = 'user/setSession/$1';
 $route['user/(:any)'] = 'user/getUserProfile/$1';
 $route['user'] = 'user/index';
 
+$route['teammem'] = 'welcome/teamMem';
+$route['teampost'] = 'welcome/teamPosts';
 $route['unenrolledcou'] = 'welcome/getUnentrolledCourses';
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';

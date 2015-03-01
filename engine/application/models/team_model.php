@@ -34,9 +34,9 @@ class Team_model extends CI_Model {
 			$member = array();
 			$member['id'] = $row->user_id;
 			$mdetails = $this->user_model->getDetails($row->user_id);
-			$member['name'] = $mdetails['name'];
-			$member['imgUrl'] = $mdetails['imgUrl'];
-			$member['course_level'] = $this->user_model->getCourseLevel($row->user_id,$row2->course);
+			$member['username'] = $mdetails['name'];
+			$member['avatar'] = $mdetails['imgUrl'];
+			$member['teamlevel'] = $this->user_model->getCourseLevel($row->user_id,$row2->course);
 			array_push($memebers, $member);
 		}
 
@@ -51,7 +51,8 @@ class Team_model extends CI_Model {
 		foreach($query->result() as $row){
 			$post = array();
 			$post['id'] = $row->id;
-			$post['question'] = $row->question;
+			$post['type'] = $row->type;
+			$post['text'] = $row->question;
 			$post['createdAt'] = $row->createdAt;
 			$post['by'] = $this->user_model->getDetails($row->user_id);
 			$post['answers'] = $this->getAnswers($row->id);
@@ -65,8 +66,8 @@ class Team_model extends CI_Model {
 		$query = $this->db->get_where('answers',array('question_id' => $qid));
 		foreach($query->result() as $row){
 			$ans = array();
-			$ans['user_id'] = $row->user_id;
-			$ans['answer'] = $row->answer;
+			$ans['username'] = $this->user_model->getName($row->user_id);
+			$ans['text'] = $row->answer;
 			$ans['createdAt'] = $row->createdAt;
 			array_push($answers, $ans);
 		}

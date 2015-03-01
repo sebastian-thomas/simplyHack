@@ -21,5 +21,13 @@ class Gen_model extends CI_Model {
 		return $courses;
 	}
 
+	public function insertPost($data){
+		$this->db->insert('question',$data);
+	}
+
+	public function insertAns($data){
+		$this->db->insert('answers',$data);
+	}
+
 
 }
