@@ -45,6 +45,9 @@
         when('/course', {
             templateUrl: 'app/views/courses.html'
         }).
+        when('/course', {
+            templateUrl: 'app/views/entroll.html'
+        }).
         otherwise({
             redirectTo: '/public'
         });
