@@ -1,22 +1,25 @@
 (function() {
 
-    var memebers = [{
-        name: 'Me',
+/*    var memebers = [{
+        username: 'Me',
         avatar: 'assets/img/avatar1.png',
-        teamlevel:80
+        teamlevel:8
     }, {
-        name: 'Aslam',
+        username: 'Aslam',
         avatar: 'assets/img/avatar1.png',
-        teamlevel:60
+        teamlevel:6
     }, {
-        name: 'Seb',
+        username: 'Seb',
         avatar: 'assets/img/avatar2.png',
-        teamlevel:70
+        teamlevel:5
     }, {
-        name: 'Ibru',
+        username: 'Ibru',
         avatar: 'assets/img/avatar3.png',
-        teamlevel:60
+        teamlevel:4
     }];
+*/
+   var memebers;
+   
 
     var discuss = [{
         type: 'q',
@@ -53,7 +56,7 @@
         });
     }]);
 
-    app.controller('Discussion', function($scope) {
+    app.controller('Discussion', function($scope,$http) {
             var activebtn = 'q';
             this.answerTemp = '';
             this.data = discuss;
@@ -66,6 +69,7 @@
                 answers: []
             };
 
+        
             this.setActiveBtn = function(num) {
                 this.liveDiscuss.type = num;
                 activebtn = num;
@@ -98,20 +102,41 @@
             };
 
         })
-        .controller('TeamMember', ['$scope', function($scope) {
-            $scope.team = memebers;
+        .controller('TeamMember', ['$scope','$http', function($scope,$http) {
+            
+            $http.get('engine/index.php/teammem')
+                        .success(function(data){
+                            $scope.team = data.memebers;
+                            console.log(data.memebers)
+                        })
+                        .error(function(){
+                            console.log("Error");
+            });
+
 
         }])
-        .controller("BarCtrl", function($scope) {
-
+        .controller("BarCtrl",['$scope','$http', function($scope,$http) {
+            
+            $scope.options={
+                responsive: false
+            };
             $scope.labels = [];
             $scope.data=[[]];
-            jQuery.each(memebers,function(index,data){
-                $scope.labels.push(data.name);
-                $scope.data[0].push(data.teamlevel)
-            })
 
-        });
+            $http.get('engine/index.php/teammem')
+                    .success(function(data){
+                        $scope.team = data.memebers;
+                        jQuery.each($scope.team,function(index,data){
+                            $scope.labels.push(data.username);
+                            $scope.data[0].push(data.teamlevel)
+                        });
+                    })
+                    .error(function(){
+                        console.log("Error");
+            });
+        
+
+        }]);
 
     app.directive('header', function() {
             return {
