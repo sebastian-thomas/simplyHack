@@ -1,23 +1,127 @@
+
+
 <link href="assets/css/profile.css" type="text/css" rel="stylesheet">
 
-<div id="container">
-	<div id="top_section">
-		<div class="small_box">
-			image
+<div id="container" >
+
+      <div class="row">
+        <div class="span12">
+
+
+	<div id="top_section" class="row">
+		<div class="small_box col-md-4">
+			<img class="img-thumbnail span2" src="assets/img/avatar1.png" />
 		</div>
-		<div class="small_box">
-			User data
+		<div class="small_box col-md-4">
+			<table class="table margin-top-40">
+				<tr><td><b style="font-size:1.6em">Ibrahim M T</b></td></tr>
+				<tr><td>ibru@gmail.com</td></tr>
+				<tr><td>Joined on 20 Jan 2015 </td></tr>
+			</table>
+		
+			
 		</div>
-		<div class="small_box">
+		<div class="small_box col-md-4 row">
 			User activity
+			<img class="img-thumbnail span4" src="assets/img/useractivity.png"/>
 		</div>				
 	</div>
 
-	<div id="mid_section">
-		Badges
-	</div>
+	<div id="bot_section"  ng-init="$scope.profiletab=1">
+		<ul class="nav nav-tabs" role="tablist" id="myTab">
+	  		<li role="presentation" ng-class="{active:$scope.profiletab===1}" ng-click="$scope.profiletab=1"><a href="" aria-controls="courses" role="tab" data-toggle="tab">Courses</a></li>
+	  		<li role="presentation" ng-class="{active:$scope.profiletab===2}" ng-click="$scope.profiletab=2" ><a href="" aria-controls="stud_badges" role="tab" data-toggle="tab">Student Badges</a></li>
+	    	<li role="presentation" ng-class="{active:$scope.profiletab===3}" ng-click="$scope.profiletab=3"><a href="" aria-controls="team_badges" role="tab" data-toggle="tab">Team Badges</a></li>
+		</ul>
 
-	<div id="bot_section">
-		Courses
+		<div class="tab-content">
+	  		<div role="tabpanel" class="tab-pane" id="courses" ng-class="{active:$scope.profiletab===1}">
+	  			<table class="table courses-table margin-left-20 margin-top-20">
+	  				<tr>
+	  					<td>1</td>
+	  					<td>AngularJs</td>
+	  					<td><img class="course-levels" src="assets/img/levels/1.png"/></td>
+	  					<td>Started on 20 jan 2015</td>
+	  					<td>Completed on </td>
+
+                   </tr>
+
+
+
+                    
+	  			</table>
+	  		</div>
+	  		<div role="tabpanel" class="tab-pane" id="stud_badges" ng-class="{active:$scope.profiletab===2}">
+	  		<!-- 	<ul>
+	  				<li><img src="assets/img/student_badges/self.png"/></li>
+	  				<li><img src="assets/img/student_badges/inquisitive.png"/></li>
+	  				<li><img src="assets/img/student_badges/talkative.png"/></li>
+	  				<li><img src="assets/img/student_badges/student.png"/></li>
+	  			</ul>
+              -->
+<table class="table-badges table" class="table">
+<tr>
+   <td><img class="badges-img"  style=" filter: grayscale(0);-webkit-filter: grayscale(0%); filter: grayscale(0%);" src="assets/img/student_badges/self.png"/></td>
+   <td>Self-Motivated</td>
+   <td >
+
+   		<div class="progress">
+  		<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+  		aria-valuemin="0" aria-valuemax="100" style="width:50%">
+   				 50% Complete (info)
+  		</div>
+		</div>
+	</td>
+  </tr>
+
+  <tr>
+   <td><img class="badges-img"  style=" filter: grayscale(.5);-webkit-filter: grayscale(50%); filter: grayscale(50%);"  src="assets/img/student_badges/inquisitive.png"/></td>
+   <td>Inquisitive</td>
+   <td >
+   		<div class="progress">
+  		<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+  		aria-valuemin="0" aria-valuemax="100" style="width:50%">
+   				 50% Complete (info)
+  		</div>
+		</div></td>
+  </tr>
+
+  <tr>
+   <td><img class="badges-img"  style=" filter: grayscale(.9);-webkit-filter: grayscale(90%); filter: grayscale(90%);" src="assets/img/student_badges/talkative.png"/></td>
+   <td>Talkative</td>
+   <td >35% left</td>
+  </tr>
+
+
+  <tr>
+   <td><img class="badges-img"  style=" filter: grayscale(1);-webkit-filter: grayscale(100%); filter: grayscale(100%);"  src="assets/img/student_badges/student.png"/></td>
+   <td>Student</td>
+   <td >15% left</td>
+  </tr>
+
+</table>
+          
+
+
+
+
+
+
+	  		</div>
+	  	  	<div role="tabpanel" class="tab-pane" id="team_badges" ng-class="{active:$scope.profiletab===3}">
+	  			<ul>
+	  				<li><img src="assets/img/team_badges/committed.png"/></li>
+	  				<li><img src="assets/img/team_badges/communicative.png"/></li>
+	  				<li><img src="assets/img/team_badges/coperative.png"/></li>
+	  				<li><img src="assets/img/team_badges/creative.png"/></li>
+	  				<li><img src="assets/img/team_badges/leader.png"/></li>
+	  			</ul>	  	  		
+	  	  	</div>
+
+		</div>
 	</div>
 </div>
+</div>
+</div>
+
+

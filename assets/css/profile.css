@@ -1,17 +1,24 @@
 #container{
-	width:60%;
+	width: 60%;
 	margin-right: auto;
 	margin-left: auto;
 }
 
-#top_section{
-	border : 1px solid;
-}
 
-#mid_section{
-	border : 1px solid;
+.course-levels{
+	width: 50px;
 }
+table.courses-table tr td{
+	vertical-align: middle;
+}
+table.table-badges tr td{
+	vertical-align: middle;
+}
+img.badges-img{
+	width: 80px;
+	height: auto;
 
-#bot_section{
-	border : 1px solid;
+}
+.progress{
+	max-width: 150px;
 }
