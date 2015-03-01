@@ -44,7 +44,7 @@
 	  					<td>{{course.name}}</td>
 	  					<td><img class="course-levels" src="assets/img/levels/{{course.level}}.png"/></td>
 	  					<td>Started on {{course.startedOn |  dateToISO | date:'MM/dd/yyyy'}}</td>
-	  					<td >Completed on :<span ng-hide="course.completedOn =='0000-00-00 00:00:00'">{{course.completedOn }}</span></td>
+	  					<td ><span ng-hide="!course.completedOn =='0000-00-00 00:00:00'">Not Completed</span><span ng-hide="course.completedOn =='0000-00-00 00:00:00'">Completed on : {{course.completedOn }}</span></td>
 
                    </tr>
    
