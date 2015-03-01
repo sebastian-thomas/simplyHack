@@ -50,7 +50,7 @@
 
                         <img ng-src="{{data.avatar}}" width="25" height="25"></img>
 
-                        <t>{{data.username}}</t>
+                        <t>{{data.username+data.teamlevel}}</t> <button ng-disabled="data.teamlevel!=10" class="review-btn btn-info">Review</button>
                     </span>
             </div>
         </div>

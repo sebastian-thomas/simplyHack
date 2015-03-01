@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2015 at 05:06 AM
+-- Generation Time: Mar 01, 2015 at 05:41 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -201,11 +201,11 @@ CREATE TABLE IF NOT EXISTS `user_course` (
 --
 
 INSERT INTO `user_course` (`user_id`, `course_id`, `chapterCompleted`, `startedOn`, `completedOn`) VALUES
-(1, 1, 11, '2015-03-01 04:06:15', '0000-00-00 00:00:00'),
+(1, 1, 20, '2015-03-01 04:39:15', '0000-00-00 00:00:00'),
 (1, 2, 5, '2015-02-28 19:22:27', '0000-00-00 00:00:00'),
-(2, 1, 5, '2015-03-01 03:51:29', '0000-00-00 00:00:00'),
-(4, 1, 7, '2015-03-01 03:52:17', '0000-00-00 00:00:00'),
-(3, 1, 10, '2015-03-01 03:54:10', '0000-00-00 00:00:00');
+(2, 1, 15, '2015-03-01 04:41:20', '0000-00-00 00:00:00'),
+(4, 1, 17, '2015-03-01 04:41:29', '0000-00-00 00:00:00'),
+(3, 1, 20, '2015-03-01 04:41:11', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

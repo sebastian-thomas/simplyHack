@@ -83,6 +83,11 @@ ul li{
 	margin-left: 5px;
 	margin-top:20px;
 }
+.review-btn{
+	margin-left: 10px;
+	border: none;
+	width: 60px;
+}
 .singleDiscussion{
 	padding: 5px;
 }
